@@ -22,7 +22,7 @@ Lambda function to upload documents to an S3 bucket.
 
 ## Setup steps for the Django chat application:
 
-1. Clone the project from the repository to get all the project files to your local machine.
+1.Clone the project from the repository to get all the project files to your local machine.
 
 2.Navigate to the Django folder:
 Move to the backend folder within the project directory where the Django project files are located.
