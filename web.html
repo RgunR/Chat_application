@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Webpage</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      z-index: 1000;
+    }
+    .content {
+      display: flex;
+      flex: 1;
+      margin-top: 50px;
+    }
+    .left-menu {
+      background-color: #f4f4f4;
+      width: 20%;
+      padding: 10px;
+      transition: width 0.3s ease;
+    }
+    .left-menu.collapsed {
+      width: 5%;
+    }
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      background-color: #fff;
+    }
+    .right-panel {
+      background-color: #f9f9f9;
+      width: 20%;
+      padding: 10px;
+    }
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">Fixed Navbar</div>
+  <div class="content">
+    <div class="left-menu" id="leftMenu">
+      Left Menu
+      <button onclick="toggleMenu()">Toggle</button>
+    </div>
+    <div class="main-content">Main Content Area</div>
+    <div class="right-panel">Right Panel</div>
+  </div>
+  <div class="footer">Footer</div>
+
+  <script>
+    function toggleMenu() {
+      const leftMenu = document.getElementById('leftMenu');
+      leftMenu.classList.toggle('collapsed');
+    }
+
+    function adjustPageSize() {
+      const width = window.innerWidth;
+      const body = document.body;
+      if (width >= 992 && width <= 1600) {
+        body.style.transform = 'scale(0.9)';
+      } else if (width >= 700 && width <= 767) {
+        body.style.transform = 'scale(0.8)';
+      } else if (width >= 600 && width < 700) {
+        body.style.transform = 'scale(0.75)';
+      } else if (width <= 600) {
+        body.style.transform = 'scale(0.5)';
+      } else {
+        body.style.transform = 'scale(1)';
+      }
+    }
+
+    window.addEventListener('resize', adjustPageSize);
+    document.addEventListener('DOMContentLoaded', adjustPageSize);
+  </script>
+</body>
+</html>
